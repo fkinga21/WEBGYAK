@@ -1,32 +1,33 @@
 <?php
-
-$host = 'mysql.omega';
-$db   = 'cukorweb1'; 
-$user = 'cukorweb1';
-$pass = 'sutike21*';
+// Adatbázis kapcsolathoz szükséges adatok
+$host = 'mysql.omega'; // adatbázis szerver címe
+$db   = 'cukorweb1'; // adatbázis neve
+$user = 'cukorweb1'; // felhasználónév
+$pass = 'sutike21*'; // jelszó
 
 try {
     $db = new PDO('mysql:host='.$host.';dbname='.$db.';charset=utf8', $user, $pass);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
+	// Ha nem sikerül a kapcsolódás, leállítjuk a programot és kiírjuk a hibát
     die('Hiba: ' . $e->getMessage());
 }
 $ablakcim = array(
     'cim' => 'CUKI',
 );
-
+// Hibakezelés beállítása: kivételt dob hiba esetén
 $fejlec = array(
-    'kepforras' => 'sutikelogo.png',
-    'kepalt' => 'logo',
-	'cim' => 'Cukrászda Adminisztráció',
-	'motto' => ''
+    'kepforras' => 'sutikelogo.png', // logó képfájl
+    'kepalt' => 'logo',  // kép alt attribútuma
+	'cim' => 'Cukrászda Adminisztráció', // fő cím
+	'motto' => '' // opcionális mottó
 );
-
+// Lábléc adatai
 $lablec = array(
-    'copyright' => 'Copyright '.date("Y").'.',
+    'copyright' => 'Copyright '.date("Y").'.', // aktuális év automatikusan
     'ceg' => 'Cukrászda Adminisztráció | Készítette: Baricza Lili Viktória(fagcko) & Fődi Kinga(ew67ro)'
 );
-
+// Oldalak konfigurációja
 $oldalak = array(
 	'/' => array('fajl' => 'cimlap', 'szoveg' => 'Főoldal', 'menun' => array(1,1)),
 	'kepek' => array('fajl' => 'kepek', 'szoveg' => 'Képek', 'menun' => array(1,1)),

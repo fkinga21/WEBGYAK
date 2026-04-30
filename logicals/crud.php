@@ -1,6 +1,7 @@
 <?php
 // 1. TÖRLÉS (Delete) - POST alapon, hogy ne legyen paraméter az URL-ben
 if (isset($_POST['torol_id'])) {
+    // Az ID-t egész számmá alakítjuk
     $id = (int)$_POST['torol_id'];
 
     // Kapcsolt táblák törlése
@@ -66,5 +67,6 @@ $sql = "SELECT s.id, s.nev, s.tipus, s.dijazott, t.mentes, a.ertek, a.egyseg
         FROM suti s
         LEFT JOIN tartalom t ON s.id = t.sutiid
         LEFT JOIN ar a ON s.id = a.sutiid";
+// Lekérdezés futtatása és az összes eredmény lekérése tömbként
 $sutik = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 ?>

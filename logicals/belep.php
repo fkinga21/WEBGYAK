@@ -1,4 +1,5 @@
 <?php
+// Ellenőrizzük, hogy a szükséges POST adatok (felhasználónév és jelszó) megérkeztek-e
 if(isset($_POST['felhasznalo']) && isset($_POST['jelszo'])) {
     try {
         // Kapcsolódás
@@ -15,12 +16,15 @@ if(isset($_POST['felhasznalo']) && isset($_POST['jelszo'])) {
         if($row) {
             $_SESSION['csn'] = $row['csaladi_nev']; $_SESSION['un'] = $row['uto_nev']; $_SESSION['login'] = $_POST['felhasznalo'];
         }
+        // (Ha nincs találat, akkor nem történik semmi → nincs hibaüzenet)
     }
     catch (PDOException $e) {
+        // Adatbázis hiba kezelése
         $errormessage = "Hiba: ".$e->getMessage();
     }      
 }
 else {
+    // Ha nem POST-ból jött a kérés, visszairányítjuk a főoldalra
     header("Location: .");
 }
 ?>

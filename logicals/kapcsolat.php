@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 3. Mentés az adatbázisba
     $sql = "INSERT INTO uzenetek (nev, email, uzenet, datum) VALUES (:nev, :email, :uzenet, NOW())";
     $stmt = $db->prepare($sql);
-    
+    // Paraméterek behelyettesítése és végrehajtás
     $stmt->execute([
         ':nev'    => $mentett_nev, 
         ':email'  => $email, 
@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         " A bejelentkezéshez <a href='/uzenetek'>kattintson ide</a>.";
     // Visszirányítás a kapcsolat oldalra
     header("Location:  /kapcsolat");
+    // A script futásának leállítása
     exit();
 }
 ?>

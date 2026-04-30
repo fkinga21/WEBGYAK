@@ -25,11 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["feltoltott_kep"])) {
         if (move_uploaded_file($_FILES["feltoltott_kep"]["tmp_name"], $cél_fájl)) {
     // SIKER: Munkamenetbe mentjük az üzenetet
     $_SESSION['uzenet'] = 'Sikeres feltöltés!';
+    // Átirányítás a képek oldalra
     header("Location: http://cukorweb1.nhely.hu/kepek");
     exit();
     } else {
     // HIBA: Munkamenetbe mentjük az üzenetet
     $_SESSION['uzenet'] = 'Hiba történt a feltöltés során!';
+    // Visszairányítás
     header("Location: http://cukorweb1.nhely.hu/kepek");
     exit();
 }
