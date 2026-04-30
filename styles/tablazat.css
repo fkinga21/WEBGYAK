@@ -1,18 +1,18 @@
 /* Táblázat alapstílusa */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Teljes szélesség */
+    border-collapse: collapse; /* Cellák közti dupla vonalak eltüntetése */
     margin-top: 20px;
     font-family: Arial, sans-serif;
 }
 
 table th, table td {
-    padding: 12px;
+    padding: 12px; /* Belső térköz */
     border: 1px solid #ddd; /* A cellák közötti vonalak */
 }
 
 table th {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Fejléc háttér */
     text-align: center;
 }
 
