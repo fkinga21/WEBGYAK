@@ -2,7 +2,8 @@
 <a href="suti_uj" class="btn">Add New</a>
 
 <form action="/crud" method="post">
-<table border="1" style="width:100%; border-collapse: collapse; margin-top: 20px;">
+    <div class="table-responsive">
+<table border="1" >
     <thead>
         <tr>
             <th>Név</th>
@@ -50,4 +51,5 @@
         <?php endforeach; ?>
     </tbody>
     </table>
+    </div>
 </form>

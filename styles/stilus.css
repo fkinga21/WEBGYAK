@@ -130,25 +130,6 @@ footer {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .video-container {
-        flex-direction: column; 
-    }
-}
-@media (min-width: 768px) {
-    div#content img {
-        float: right;
-        margin: 0 0 15px 15px; 
-        width: 40%;            
-    }
-}
-
-@media (max-width: 600px) {
-    header img {
-        max-height: 80px; 
-    }
-}
-
 .galeria {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -260,3 +241,80 @@ input[name="nev"] {
     width: 150px;
 }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; 
+    display: block;
+    border-collapse: collapse; margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; 
+    }
+}
+@media (min-width: 768px) {
+    div#content img {
+        float: right;
+        margin: 0 0 15px 15px; 
+        width: 40%;            
+    }
+}
+/* Mobilos nézet finomhangolása */
+@media screen and (max-width: 760px) {
+    /* A táblázat ne táblázatként viselkedjen */
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Fejléc elrejtése (mobilon zavaró lenne) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+
+    td {
+        /* Úgy teszünk, mintha egy sor lenne */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50% !important;
+        text-align: right !important;
+        min-height: 35px;
+    }
+
+    /* Itt jelenítjük meg a mezők neveit a bal oldalon */
+    td:before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        /* Az alábbi neveket írd át a te oszlopaidra sorrendben */
+        content: attr(data-label); 
+    }
+
+    /* A gombok (Mentés/Módosítás) kiszélesítése */
+    input[type="submit"], button {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 10px !important;
+        display: block !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    input[type="text"], input[type="number"] {
+        width: 80px; /* Vagy amennyi szükséges, hogy ne nyomja szét a cellát */
+    }
+}

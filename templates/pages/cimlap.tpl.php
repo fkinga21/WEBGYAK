@@ -1,4 +1,4 @@
-<h2>Köszöntés</h2>
+<h3>Köszöntés</h3>
 <img src="./images/cukifőold.jpg">
 
 <section class="bemutatkozas">
@@ -7,7 +7,7 @@
 </section>
 
 <section class="videok">
-    <h3>Ízelítő munkánkból</h3>
+    <h2>Ízelítő munkánkból</h2>
     
     <div class="video-container">
         <div class="video-box">
