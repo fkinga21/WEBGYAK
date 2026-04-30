@@ -1,0 +1,40 @@
+/* Táblázat alapstílusa */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd; /* A cellák közötti vonalak */
+}
+
+table th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Oszlopok igazítása */
+/* 1. Név (Balra) */
+table td:nth-child(1) { text-align: left; }
+
+/* 2. Típus (Balra) */
+table td:nth-child(2) { text-align: center; }
+
+/* 3. Díjazott (Középre) */
+table td:nth-child(3) { text-align: center; }
+
+/* 4. Mentesség (Középre) */
+table td:nth-child(4) { text-align: center; }
+
+/* 5. Ár (Jobbra - hogy a számok helyiértékei egymás alatt legyenek) */
+table td:nth-child(5) { text-align: right; padding-right: 20px; }
+
+/* 6. Egység (Balra) */
+table td:nth-child(6) { text-align: right; }
+
+/* 7. Actions (Középre) */
+table td:nth-child(7) { text-align: left; }
+

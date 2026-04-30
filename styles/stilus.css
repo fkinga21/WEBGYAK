@@ -1,0 +1,262 @@
+header {
+    border-radius: 10px;
+    background-color: rgb(236, 131, 228);
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;             
+    padding: 20px;
+}
+
+header img {
+    max-height: 80px;
+    width: auto;        
+    display: block;     
+    margin: 10px 0;
+}
+header h1 {
+    margin: 0;           
+}
+
+div#wrapper {
+    margin: 10px;
+}
+
+aside {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.navbar {
+    background-color: #f09dd0; 
+    text-transform: capitalize;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+  color:rgb(164, 36, 168);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  transition: background 0.3s;
+  font-size: clamp(0.8rem, 2vw, 1.2rem); /* Ez a trükk: automatikusan méretezi a betűt */
+  white-space: nowrap;
+}
+
+.navbar li.active a {
+    border-bottom: 2px solid rgba(127, 27, 241, 0.5);
+}
+
+div#content {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color:#f4eaf5;
+    padding: 15px;
+}
+
+div#content img{
+    display: block;
+    width: 100%;       
+    max-width: 400px;  
+    height: auto;
+    margin: 15px auto; 
+    padding: 3px;
+    border: 3px solid rgb(189, 34, 181);
+}
+
+footer {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px 20px;
+    background-color: #f09dd0; 
+    text-align: center;
+    color:rgb(164, 36, 168);
+    font-weight: bold;
+}
+
+/* Főoldal egyedi stílusai */
+.cimlap-section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 50%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.video-box {
+    flex: 1 1 300px;
+    background-color: white;
+    padding: 15px;          
+    border-radius: 10px;   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    box-sizing: border-box;  
+}
+
+.video-box video, 
+.video-box iframe {
+    width: 100%;
+    height: auto; 
+    aspect-ratio: 16 / 9; 
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; 
+    }
+}
+@media (min-width: 768px) {
+    div#content img {
+        float: right;
+        margin: 0 0 15px 15px; 
+        width: 40%;            
+    }
+}
+
+@media (max-width: 600px) {
+    header img {
+        max-height: 80px; 
+    }
+}
+
+.galeria {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important; /* Ez adja a szép távolságot a képek között */
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+}
+
+
+.galeria {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important; /* Ez adja a szép távolságot a képek között */
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+}
+
+/* Képek stílusa: itt szüntetjük meg a keretet és a kilógást */
+.galeria img {
+    width: 200px !important;  /* Fix méret */
+    height: 150px !important; /* Fix méret */
+    object-fit: cover !important; /* Hogy ne torzuljon a kép */
+    border: none !important; /* A keret eltüntetése */
+    outline: none !important; /* Ha az outline okozná a keretet */
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+/* Kép nagyítása ráhúzáskor (opcionális) */
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+#content {
+    overflow: hidden; /* Ez levágja azt, ami véletlenül kilógna */
+}
+
+
+/* Gombok stílusa */
+.btn {
+    padding: 8px 16px;
+    background-color: #db76e3; 
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;               
+    outline: none;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+.btn-edit { background-color: #17a2b8; 
+    color: white; 
+    padding: 4px 8px; 
+    border-radius: 3px; 
+    border: none;               
+    outline: none;
+}
+.btn-delete { 
+    background-color: #dc3545; 
+    color: white; 
+    padding: 4px 8px; 
+    border-radius: 3px;
+    border: none;               
+    outline: none;
+}
+
+ .btn-save { 
+    background-color: #59e27b; 
+    color: white; 
+    padding: 4px 8px; 
+    border-radius: 3px;
+    border: none;               
+    outline: none;
+}
+
+  .btn-exit { 
+    background-color: #d87deb; 
+    color: white; 
+    padding: 4px 8px; 
+    border-radius: 3px;
+    border: none;               
+    outline: none;
+ }
+
+/* A CRUD táblázatban lévő inputok formázása */
+table input[type="text"], 
+table input[type="number"] {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ez fontos, hogy a padding ne növelje a szélességet! */
+    font-size: 14px;
+}
+
+/* Külön méret az egységnek, hogy a "12 szeletes" is kiférjen */
+input[name="egyseg"] {
+    width: 100px;
+}
+
+input[name="nev"] {
+    width: 150px;
+}
+
