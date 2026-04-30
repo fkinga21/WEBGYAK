@@ -2,12 +2,12 @@
 header {
     border-radius: 10px; /* Lekerekített sarkok */
     background-color: rgb(236, 131, 228); /* Háttérszín */
-    padding: 10px; 
     margin: 10px; 
     display: flex;
     align-items: center; /* Függőleges középre igazítás */
     gap: 20px; /* Elemek közti távolság */            
-    padding: 20px; /* Belső térköz */
+    padding: 10px; /* Belső térköz */
+    box-sizing: border-box;
 }
 
 header img {
@@ -17,7 +17,9 @@ header img {
     margin: 10px 0;  /* Függőleges margó */
 }
 header h1 {
-    margin: 0; /* Alap margó eltávolítása */           
+    margin: 0; /* Alap margó eltávolítása */   
+    font-size: clamp(1.2rem, 5vw, 2.5rem); /* Rugalmasan méretezi a betűt a képernyőhöz */
+    word-wrap: break-word;        
 }
 
 div#wrapper {
@@ -34,9 +36,8 @@ aside {
     text-transform: capitalize;  /* Szavak nagy kezdőbetűvel */
     text-align: center; /* Középre igazítás */
     border-radius: 10px;
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px 0;
+    margin: 10px;
+    padding: 10px 20px;
 }
 
 .navbar ul {
@@ -116,19 +117,25 @@ footer {
 
 .video-box {
     flex: 1 1 300px;
-    background-color: white;
-    padding: 15px;          
+    background-color: white;   
     border-radius: 10px;   
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    box-sizing: border-box;  
+    width: 90% !important;      /* Mobilon ne legyen fix szélességű, hanem a képernyő 90%-a */
+    max-width: 400px !important; /* De asztali gépen ne nőjön túl nagyra */
+    min-width: 0 !important;     /* Ez engedi, hogy kisebb legyen, mint az alapértelmezett */
+    margin: 10px auto !important; /* Középre igazítás */
+    padding: 15px;
+    box-sizing: border-box;      /* Hogy a keret ne növelje a szélességet */
+    display: block;
 }
 
 .video-box video, 
-.video-box iframe {
-    width: 100%;
-    height: auto; 
+.video-box iframe { 
     aspect-ratio: 16 / 9; /* Videó arány */
     display: block;
+    max-width: 100% !important; /* Nem lehet szélesebb a szülő doboznál */
+    width: 100% !important;     /* Kitölti a rendelkezésre álló helyet */
+    height: auto !important;    /* Megtartja az arányokat */
 }
 
 .galeria {
@@ -242,6 +249,13 @@ input[name="nev"] {
     width: 150px;
 }
 
+td input, td select {
+    width: 100% !important;
+    max-width: 150px !important;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
 .table-responsive {
     width: 100%;
     overflow-x: auto; 
@@ -283,27 +297,29 @@ input[name="nev"] {
         background: #fff;
     }
 
-    td {
-        /* Úgy teszünk, mintha egy sor lenne */
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
+   td {
+        position: relative !important;
         padding-left: 50% !important;
         text-align: right !important;
-        min-height: 35px;
+        display: block !important;
+        width: 100% !important;
+        min-height: 1.5em; 
+        clear: both;
     }
 
-    /* Itt jelenítjük meg a mezők neveit a bal oldalon */
+    /* A felirat megjelenítése */
     td:before {
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-        /* Az alábbi neveket írd át a te oszlopaidra sorrendben */
-        content: attr(data-label); 
+        content: attr(data-label) !important; /* NINCS IDÉZŐJEL! */
+        position: absolute !important;
+        left: 10px !important;
+        width: 40% !important;
+        text-align: left !important;
+        font-weight: bold !important;
+        color: #333 !important;
+        white-space: normal !important;
+        line-height: 1.2;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     /* A gombok (Mentés/Módosítás) kiszélesítése */
@@ -313,7 +329,41 @@ input[name="nev"] {
         padding: 10px !important;
         display: block !important;
     }
+    td:last-child {
+        text-align: center !important; /* Középre igazítja a gombokat */
+        padding-left: 10px !important; /* Eltávolítja a bal oldali nagy üres helyet */
+        background-color: #f9f9f9;    /* Opcionális: picit más háttér a gomboknak */
+        border-top: 1px solid #ddd;
+    }
+
+    /* Megakadályozzuk, hogy a gombok előtt is megjelenjen egy üres label */
+    td:last-child:before {
+        content: "" !important;
+        display: none !important;
+    }
+
+    /* A gombok egymás mellé vagy alá rakása mobilon */
+    td:last-child button, 
+    td:last-child input[type="submit"] {
+        display: inline-block !important; /* Vagy 'block', ha azt akarod, hogy egymás alatt legyenek teliszélességben */
+        width: 45% !important;            /* Egymás mellett lesznek, kis közzel */
+        margin: 5px 2% !important;
+        min-width: 100px;
+    }
+    /* Szerkesztő mód input mezői */
+    td input[type="text"], 
+    td input[type="number"], 
+    td select {
+        width: 100% !important;   /* Kitölti a rendelkezésre álló (jobb oldali) helyet */
+        max-width: 150px !important; /* Korlátozzuk, hogy ne tolja el a labelt */
+        box-sizing: border-box;
+        padding: 5px;
+        font-size: 14px;
+        display: inline-block;
+    }
 }
+
+
 @media screen and (max-width: 600px) {
     input[type="text"], input[type="number"] {
         width: 80px; /* Vagy amennyi szükséges, hogy ne nyomja szét a cellát */
