@@ -47,7 +47,6 @@ aside {
     justify-content: center;
     flex-wrap: wrap; /* Több sorba törhet */
 }
-}
 
 .navbar li {
     margin: 0 15px;
