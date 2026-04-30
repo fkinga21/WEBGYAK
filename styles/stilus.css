@@ -1,26 +1,27 @@
+/* FEJLÉC */
 header {
-    border-radius: 10px;
-    background-color: rgb(236, 131, 228);
-    padding: 10px;
-    margin: 10px;
+    border-radius: 10px; /* Lekerekített sarkok */
+    background-color: rgb(236, 131, 228); /* Háttérszín */
+    padding: 10px; 
+    margin: 10px; 
     display: flex;
-    align-items: center;
-    gap: 20px;             
-    padding: 20px;
+    align-items: center; /* Függőleges középre igazítás */
+    gap: 20px; /* Elemek közti távolság */            
+    padding: 20px; /* Belső térköz */
 }
 
 header img {
-    max-height: 80px;
-    width: auto;        
-    display: block;     
-    margin: 10px 0;
+    max-height: 80px; /* Maximális magasság */
+    width: auto; /* Arányos szélesség */       
+    display: block; /* Blokk elem */     
+    margin: 10px 0;  /* Függőleges margó */
 }
 header h1 {
-    margin: 0;           
+    margin: 0; /* Alap margó eltávolítása */           
 }
 
 div#wrapper {
-    margin: 10px;
+    margin: 10px;  /* Külső térköz */
 }
 
 aside {
@@ -30,8 +31,8 @@ aside {
 
 .navbar {
     background-color: #f09dd0; 
-    text-transform: capitalize;
-    text-align: center;
+    text-transform: capitalize;  /* Szavak nagy kezdőbetűvel */
+    text-align: center; /* Középre igazítás */
     border-radius: 10px;
     margin: 10px 0;
     width: 100%;
@@ -39,12 +40,13 @@ aside {
 }
 
 .navbar ul {
-    list-style-type: none;
+    list-style-type: none; /* Lista pontok eltüntetése */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Több sorba törhet */
+}
 }
 
 .navbar li {
@@ -52,18 +54,18 @@ aside {
 }
 
 .navbar a {
-  color:rgb(164, 36, 168);
-  text-decoration: none;
+  color:rgb(164, 36, 168); /* Szöveg szín */
+  text-decoration: none; /* Aláhúzás eltüntetése */
   padding: 10px 20px;
   font-weight: bold;
   font-size: 20px;
   transition: background 0.3s;
   font-size: clamp(0.8rem, 2vw, 1.2rem); /* Ez a trükk: automatikusan méretezi a betűt */
-  white-space: nowrap;
+  white-space: nowrap; /* Ne törje sort */
 }
 
 .navbar li.active a {
-    border-bottom: 2px solid rgba(127, 27, 241, 0.5);
+    border-bottom: 2px solid rgba(127, 27, 241, 0.5); /* Aktív menü aláhúzás */
 }
 
 div#content {
@@ -101,7 +103,7 @@ footer {
     margin-bottom: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Árnyék */
 }
 
 .video-container {
@@ -126,7 +128,7 @@ footer {
 .video-box iframe {
     width: 100%;
     height: auto; 
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9; /* Videó arány */
     display: block;
 }
 
